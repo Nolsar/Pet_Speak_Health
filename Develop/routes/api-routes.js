@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+const axios = require("axios");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -8,6 +9,17 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
+  });
+
+  app.get("/api/movieApiTest/:movie", function(req, res){
+    
+    let query = `http://www.omdbapi.com/?apikey=${process.env.movieKey}&t=${req.params.movie}`;
+    console.log(query);
+
+    axios.get(query).then( results => {
+      console.log(results.data);
+      res.json(results.data);
+    });
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
