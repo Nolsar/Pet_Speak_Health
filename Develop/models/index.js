@@ -25,7 +25,6 @@ fs
     console.log(file);
     console.log(__dirname);
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
-    // var model = sequelize['import'](path.join(__dirname, file));
     db[model.name] = model;
   });
 
