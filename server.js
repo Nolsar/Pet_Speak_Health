@@ -18,6 +18,7 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // Requiring our routes
 require("./Develop/routes/html-routes")(app);
 require("./Develop/routes/api-routes")(app);
@@ -28,3 +29,23 @@ db.sequelize.sync().then(function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
+
+
+
+// Imports the Google Cloud client library
+
+const {AccessApprovalClient} = require('@google-cloud/access-approval');
+
+// TODO(developer): replace with your prefered project ID.
+const projectId = 'pet_health_speak'
+
+// Creates a client
+const client = new AccessApprovalClient();
+
+async function listRequests() {
+  const requests = await client.listApprovalRequests({
+    parent: `projects/${projectId}`,
+  });
+  console.info(requests);
+}
+listRequests();
