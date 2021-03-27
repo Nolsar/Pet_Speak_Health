@@ -15,14 +15,14 @@ const sessionPath = sessionClient.projectAgentSessionPath(
 
 // Read the content of the audio file and send it as part of the request.
 const readFile = util.promisify(fs.readFile);
-const inputAudio = await readFile(filename);
+const inputAudio = await readFile("..\Develop\models\STT.js"); //replace with file mp3
 const request = {
   session: sessionPath,
   queryInput: {
     audioConfig: {
-      audioEncoding: encoding,
-      sampleRateHertz: sampleRateHertz,
-      languageCode: languageCode,
+      audioEncoding: encoding, //replace 23, 24, 25
+      sampleRateHertz: 16000, //1600 hrz as recommended by documentation
+      languageCode: 'en-us', //english
     },
   },
   inputAudio: inputAudio,
