@@ -1,3 +1,5 @@
+require("dotenv").config();
+require("./Develop/dialogapi/STT.js")
 // Requiring necessary npm packages
 var express = require("express");
 var session = require("express-session");
