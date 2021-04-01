@@ -1,5 +1,7 @@
 body, html {
   height: 100%;
+  background-image: url("https://www.royacdn.com/unsafe/Site-35b60a0b-61bb-433e-b87d-309402cd73e4/assets/banner_img.jpg");
+  background-color: #cccccc;
 }
 
 form.signup,
@@ -20,6 +22,10 @@ h1 {
   align-items: center;
  }
 
+.img {
+
+}
+
  .bg {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNWW4VFAu2QdokNezfow7cKQccIoa0iOHVng&usqp=CAU");
   height: 100%;
@@ -28,6 +34,33 @@ h1 {
   background-size: cover;
   }
 
-  .menu ul, .menu li {
-    
+  .ul, .li {
+    list-style-type: none;
+    text-align: center;
+    display: inline;
+    margin: 0;
+    padding: 0;
   }
+  .navbar {
+    width: 100%;
+    background-color: none;
+  }
+
+  #menu-outer {
+    height: 84px;
+    background: url(images/bar-bg.jpg) repeat-x;
+  }
+  
+  .table {
+    display: table;   /* Allow the centering to work */
+    margin: 0 auto;
+  }
+
+  ul#horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+    }
+    ul#horizontal-list li {
+      display: inline;
+    }
