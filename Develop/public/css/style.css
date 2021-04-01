@@ -6,7 +6,7 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
- h1 {
+h1 {
    display: block;
    margin-left: auto;
    margin-right: auto;
@@ -26,4 +26,8 @@ form.login {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  }
+
+  .menu ul, .menu li {
+    
   }
