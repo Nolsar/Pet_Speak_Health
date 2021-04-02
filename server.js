@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("./Develop/dialogapi/STT.js")
+// require("./Develop/dialogapi/STT.js"); need that back
 // Requiring necessary npm packages
 var express = require("express");
 var session = require("express-session");
@@ -14,11 +14,12 @@ var db = require("./Develop/models");
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("./Develop/public"));
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 // Requiring our routes
@@ -32,22 +33,22 @@ db.sequelize.sync().then(function() {
   });
 });
 
-
+// we need that back
 
 // Imports the Google Cloud client library
 
-const {AccessApprovalClient} = require('@google-cloud/access-approval');
+// const {AccessApprovalClient} = require('@google-cloud/access-approval');
 
-// TODO(developer): replace with your prefered project ID.
-const projectId = 'pet_health_speak'
+// // TODO(developer): replace with your prefered project ID.
+// const projectId = 'pet_health_speak'
 
-// Creates a client
-const client = new AccessApprovalClient();
+// // Creates a client
+// const client = new AccessApprovalClient();
 
-async function listRequests() {
-  const requests = await client.listApprovalRequests({
-    parent: `projects/${projectId}`,
-  });
-  console.info(requests);
-}
-listRequests();
+// async function listRequests() {
+//   const requests = await client.listApprovalRequests({
+//     parent: `projects/${projectId}`,
+//   });
+//   console.info(requests);
+// }
+// listRequests();
