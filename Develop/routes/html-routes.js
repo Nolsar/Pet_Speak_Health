@@ -20,6 +20,7 @@ module.exports = function(app) {
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
+    console.log(__dirname);
   });
 
   // Here we've add our isAuthenticated middleware to this route.
