@@ -77,12 +77,12 @@ module.exports = function(app) {
 
 
   app.post("/api/new_pet", function(req, res) {
-    if(!req.user){
-      res.json({
-        message: "please login"
-      });
-      return;
-    }
+    // if(!req.user){
+    //   res.json({
+    //     message: "please login"
+    //   });
+    //   return;
+    // }
     db.Pets.create({
       name: req.body.name,
       animal_type: req.body.animal_type,
@@ -104,12 +104,12 @@ module.exports = function(app) {
 
 // MEDICAL-RECORDS
 app.post("/api/new_medical_record", function(req, res) {
-  if(!req.user){
-    res.json({
-      message: "please login"
-    });
-    return;
-  }
+  // if(!req.user){
+  //   res.json({
+  //     message: "please login"
+  //   });
+  //   return;
+  // }
   db.Medical_Records.create({
     pet_id: req.body.pet_id,
     vaccine_records: req.body.vaccine_records,
@@ -225,10 +225,26 @@ app.post("/api/new_medical_record", function(req, res) {
       console.log(req.params);
       db.Pets.findAll({
         where: {
-          id: petId
+          client_id: petId
         },
-      }).then(function(dbpet) {
-        res.json(dbpet);
+      }).then(async function(dbpet) {
+        if(dbpet){
+          console.log('dbpet: ', dbpet);
+          for(let i = 0; i < dbpet.length; i++){
+            await db.Medical_Records.findAll({
+              where: {
+                pet_id: dbpet[i].id
+              },
+            }).then((dbrecord) =>{
+              dbpet[i].dataValues.records = dbrecord;
+              console.log('dbpet: ', dbpet);
+              if(i+1 == dbpet.length){
+                console.log('here0000');
+                res.json(dbpet);
+              }
+            });
+          }
+        }
       });
     }
   });

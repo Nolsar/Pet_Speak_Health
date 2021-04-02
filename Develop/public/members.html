@@ -23,6 +23,8 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Welcome <span class="member-name"></span></h2>
+        <hr />
+        <h4>Search Client</h4>
       </div>
     </div>
     <div class="row">
@@ -30,10 +32,10 @@
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form class="search">
           <div class="form-row">
-            <div class="col-12 col-md-9 mb-2 mb-md-0">
+            <div class="col-3 col-md-3 col-sm-6 mb-2 mb-md-0">
               <input type="text" class="form-control form-control-lg" placeholder="Enter client name" id="search-name">
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-3 col-md-3 col-sm-6">
               <button type="submit" class="btn btn-block btn-lg btn-primary">Search By lastname</button>
 
             </div>
@@ -41,10 +43,10 @@
         </form>
         <form class="sndsearch">
           <div class="form-row">
-            <div class="col-12 col-md-9 mb-2 mb-md-0">
+            <div class="col-3 col-md-3 col-sm-6 mb-2 mb-md-0">
               <input type="text" class="form-control form-control-lg" placeholder="Enter client name" id="search-fname">
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-3 col-md-3 col-sm-6">
               <button type="submit" class="btn btn-block btn-lg btn-primary">Search By firstname</button>
 
             </div>
@@ -57,56 +59,123 @@
       <!-- search result -->
       <div id="searchresult"></div>
     </div>
+    <div class="row" id="add-pet">
+      <form class="new-pet">
+        <hr />
+        <h4>Add New Pet</h4>
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="pet-name">Pet Name</label>
+          <input type="text" class="form-control" id="pet-name" placeholder="name">
+        </div>
+         <!--last name-->
+         <div class="form-group col-md-5 col-sm-12">
+          <label for="animal_type">Animal Type</label>
+          <input type="text" class="form-control" id="animal_type" placeholder="Type">
+        </div>
+        <!--address-->
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="breed">Breed</label>
+          <input type="text" class="form-control" id="breed" placeholder="Breed">
+        </div>
+        <!--city-->
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="birthdate">Birthdate</label>
+          <input type="text" class="form-control" id="birthdate" placeholder="Birthdate">
+        </div>
+        <!--state-->
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="color">Color</label>
+          <input type="text" class="form-control" id="color" placeholder="Color">
+        </div>
+        <button type="submit" style="display: block; width: 80%;" class="btn btn-default btn-primary">Create Pet</button>
+      </form>
+    </div>
+    <div class="row" id="add-record">
+      <form class="new-record">
+        <hr />
+        <h4>Add New record</h4>
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="medication_list">medication list</label>
+          <input type="text" class="form-control" id="medication_list" placeholder="medication list">
+        </div>
+         <!--last name-->
+         <div class="form-group col-md-5 col-sm-12">
+          <label for="physical_exam">physical exam</label>
+          <input type="text" class="form-control" id="physical_exam" placeholder="physical exam">
+        </div>
+        <!--address-->
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="vaccine_records">vaccine records</label>
+          <select name="cars" id="vaccine_records">
+            <option value="Rabies">Rabies</option>
+            <option value="DAPP">DAPP</option>
+            <option value="Bordetella">Bordetella</option>
+            <option value="Leptospirosis">Leptospirosis</option>
+            <option value="Lyme">Lyme</option>
+            <option value="Influenza">Influenza</option>
+          </select>
+          <!-- <input type="text" class="form-control" id="vaccine_records" placeholder="vaccine records"> -->
+        </div>
+        
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="client_education">client education</label>
+          <input type="text" class="form-control" id="client_education" placeholder="client education">
+        </div>
+        
+        <button type="submit" style="display: block; width: 80%;" class="btn btn-default btn-primary">Create Record</button>
+      </form>
+    </div>
     <div class="row">
-
+     
       <!-- new client -->
       <form class="signup">
-
-        <div class="form-group">
+        <hr />
+        <h4>Add New Client</h4>
+        <div class="form-group col-md-5 col-sm-12">
           <label for="firstname">First Name</label>
           <input type="text" class="form-control" id="firstname" placeholder="first name">
         </div>
          <!--last name-->
-         <div class="form-group">
+         <div class="form-group col-md-5 col-sm-12">
           <label for="lastname">Last Name</label>
           <input type="text" class="form-control" id="lastname" placeholder="last name">
         </div>
         <!--address-->
-        <div class="form-group">
+        <div class="form-group col-md-5 col-sm-12">
           <label for="address">Address</label>
           <input type="text" class="form-control" id="address" placeholder="address">
         </div>
         <!--city-->
-        <div class="form-group">
+        <div class="form-group col-md-5 col-sm-12">
           <label for="address">City</label>
           <input type="text" class="form-control" id="city" placeholder="city">
         </div>
-        <!--zipcode-->
-        <div class="form-group">
-          <label for="zipcode">Zip Code</label>
-          <input type="number" class="form-control" id="zipcode" placeholder="zip code">
-        </div>
         <!--state-->
-        <div class="form-group">
+        <div class="form-group col-md-5 col-sm-12">
           <label for="state">State</label>
           <input type="text" class="form-control" id="state" placeholder="state">
         </div>
+        <!--zipcode-->
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="zipcode">Zip Code</label>
+          <input type="number" class="form-control" id="zipcode" placeholder="zip code">
+        </div>
         <!--cell phone-->
-        <div class="form-group">
+        <div class="form-group col-md-5 col-sm-12">
           <label for="cell-phone">Cell Phone</label>
           <input type="number" class="form-control" id="cell-phone" placeholder="cell phone">
         </div>
         <!--work phone-->
-        <div class="form-group">
+        <div class="form-group col-md-5 col-sm-12">
           <label for="work-phone">Work Phone</label>
           <input type="number" class="form-control" id="work-phone" placeholder="work phone">
         </div>
         <!--house phone-->
-        <div class="form-group">
+        <div class="form-group col-md-5 col-sm-12">
           <label for="house-phone">House Phone</label>
           <input type="number" class="form-control" id="house-phone" placeholder="house phone">
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-5 col-sm-12">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="email-input" placeholder="Email">
         </div>
@@ -114,7 +183,7 @@
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
           <span class="sr-only">Error:</span> <span class="msg"></span>
         </div>
-        <button type="submit" class="btn btn-default">Create Client</button>
+        <button type="submit" style="display: block; width: 80%;" class="btn btn-default btn-primary">Create Client</button>
       </form>
     </div>
   </div>
