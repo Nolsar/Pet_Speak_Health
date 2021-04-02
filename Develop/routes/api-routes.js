@@ -27,9 +27,12 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
-    db.User.create({
+    
+    db.Users.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -38,6 +41,92 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
+
+
+  app.post("/api/new_members", function(req, res) {
+    if(!req.user){
+      res.json({
+        message: "please login",
+      });
+      return;
+    }
+    db.Clients.create({
+      email: req.body.email,
+      last_name: req.body.last_name,
+      first_name: req.body.first_name,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zipcode: req.body.zipcode,
+      cell_phone: req.body.cell_phone,
+      work_phone: req.body.work_phone,
+      house_phone: req.body.house_phone,
+      // user_type: req.body.user_type || "client",
+    })
+      .then(function() {
+        // res.redirect(307, "/api/login");
+        res.json({
+          message: "client added"
+        })
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
+
+
+  app.post("/api/new_pet", function(req, res) {
+    if(!req.user){
+      res.json({
+        message: "please login"
+      });
+      return;
+    }
+    db.Pets.create({
+      name: req.body.name,
+      animal_type: req.body.animal_type,
+      birthdate: req.body.birthdate,
+      breed: req.body.breed,
+      color: req.body.color,
+      client_id: req.body.client_id
+    })
+      .then(function() {
+        // res.redirect(307, "/api/login");
+        res.json({
+          message: "pet added"
+        })
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+// MEDICAL-RECORDS
+app.post("/api/new_medical_record", function(req, res) {
+  if(!req.user){
+    res.json({
+      message: "please login"
+    });
+    return;
+  }
+  db.Medical_Records.create({
+    pet_id: req.body.pet_id,
+    vaccine_records: req.body.vaccine_records,
+    medication_list: req.body.medication_list,
+    physical_exam: req.body.physical_exam,
+    client_education: req.body.client_education
+  })
+    .then(function() {
+      // res.redirect(307, "/api/login");
+      res.json({
+        message: "medical record added"
+      })
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
@@ -58,5 +147,135 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  // search client api
+  app.get("/api/search-firstname/client/:name", function(req, res){
+    if(!req.user){
+      res.json({
+        message: "please login"
+      });
+      return;
+    }
+    else{
+      var clientName = req.params.name;
+      db.Clients.findAll({
+        where: {
+          first_name: {
+            [db.Sequelize.Op.like]: '%' + clientName + '%'
+          }
+        }
+      }).then(function(dbsearch) {
+        res.json(dbsearch);
+      });
+     }
+  });
+
+  // search by last name
+  app.get("/api/search-lastname/client/:name", function(req, res){
+    if(!req.user){
+      res.json({
+        message: "please login"
+      });
+      return;
+    }
+    else{
+      var clientName = req.params.name;
+      db.Clients.findAll({
+        where: {
+          last_name: {
+            [db.Sequelize.Op.like]: '%' + clientName + '%'
+          }
+        }
+      }).then(function(dbsearch) {
+        res.json(dbsearch);
+      });
+     }
+  });
+
+
+  app.get("/api/client_data/:id", function(req, res){
+    if(!req.user){
+      res.json({
+        message: "please login"
+      });
+      return;
+    }
+    else{
+      var clientId = req.params.id;
+      db.Clients.findOne({
+        where: {
+          id: clientId
+        },
+      }).then(function(dbclient) {
+        res.json(dbclient);
+      });
+     }
+  });
+// pet data api
+  app.get("/api/pet_data/:id", function(req, res){
+    if(!req.user){
+      res.json({
+        message: "please login"
+      });
+      return;
+    }
+    else{
+      var petId = req.params.id;
+      console.log(req.params);
+      db.Pets.findAll({
+        where: {
+          id: petId
+        },
+      }).then(function(dbpet) {
+        res.json(dbpet);
+      });
+    }
+  });
+//pet record  api
+  app.get("/api/medical_record/:id", function(req, res){
+    if(!req.user){
+      res.json({
+        message: "please login"
+      });
+      return;
+    }
+    else{
+      var recordId = req.params.id;
+      db.Medical_Records.findAll({
+        where: {
+          id: recordId
+        },
+      }).then(function(dbrecord) {
+        res.json(dbrecord);
+      });
+    }
+  });
+
+  // update client
+
+  app.put("/api/update/client", function(req, res) {
+    db.Clients.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbclient) {
+      res.json(dbclient);
+    });
+  });
+
+  //update pet
+  app.put("/api/update/pet", function(req, res) {
+    db.Pets.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbpet) {
+      res.json(dbpet);
+    });
   });
 };
