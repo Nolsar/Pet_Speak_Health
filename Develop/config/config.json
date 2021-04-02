@@ -1,7 +1,7 @@
 {
-  "martin": {
+  "sara": {
     "username": "root",
-    "password": "Popo1234",
+    "password": "rootpw",
     "database": "pet_speak_health_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
