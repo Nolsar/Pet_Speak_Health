@@ -55,7 +55,7 @@ PSH enables not just keeping of medical documentation, but the oral dictation, a
 Pet Speak Health (PSH) enables the storage of medical notes, history, and other relevant medical records specific to a pet and their owner. Pet Speak Health uses STT (Speech to Text) notation for when your hands are occupied caring for a per. Medical record transcription takes the pen out of your hands so you can focus on what is really important... caring for the animals! When activated, PSH records audio and will transcribe
 your notes and store them to a pet's unique file the server. The pet's records are unique to each client ie: owner. Medical records are accessible to the staff, as well as the owner.
 
-[![Screenshot](Develop\public\img\Screenshot.jpg)
+[![Screenshot](https://github.com/Nolsar/Pet_Speak_Health/blob/main/Develop/public/img/Screenshot.jpg)
 
 
 
@@ -90,14 +90,14 @@ To get a local copy up and running, follow these simple steps:
    ```sh
    npm install
    ```
-3. change database in config.json to reflect your unique username and databse
+3. Change database in config.json to reflect your unique username and databse
    ```
-3. Start the server in the integrated terminal
+4. Start the server in the integrated terminal
    ```sh
    node server.js
    ```
 4. Open the server
-   ```
+   
 5. To use the application, login using:
     email: 'admin@gmail.com'
     password: 'password'
@@ -136,15 +136,17 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@github](https://github.com/Nolsar)
+Sara N. - [@github](https://github.com/Nolsar)
 
 Project Link: [Pet Speak Health](https://github.com/Nolsar/Pet_Speak_Health)
+
+Deployed Project (use provided login credentials: [Pet Speak Health](https://pet-speak-health.herokuapp.com/)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+## Acknowledgements/Contributors
 
-* [Josh](https://github.com/Joshuajword)
-* [Salfo](https://github.com/Sbande90)
-* [Martin](https://github.com/ESMAMU1986)
+* [Josh B.](https://github.com/Joshuajword)
+* [Salfo B.](https://github.com/Sbande90)
+* [Martin M.](https://github.com/ESMAMU1986)
