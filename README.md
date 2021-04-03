@@ -91,7 +91,7 @@ To get a local copy up and running, follow these simple steps:
    npm install
    ```
 3. Change database in config.json to reflect your unique username and databse
-   ```
+   
 4. Start the server in the integrated terminal
    ```sh
    node server.js
