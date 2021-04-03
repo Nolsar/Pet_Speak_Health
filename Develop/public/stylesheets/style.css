@@ -2,3 +2,9 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+body {
+  background-color: #ffffff;
+  background-image: url(https://www.royacdn.com/unsafe/Site-35b60a0b-61bb-433e-b87d-309402cd73e4/assets/banner_img.jpg);
+  background-repeat: no-repeat;
+}
