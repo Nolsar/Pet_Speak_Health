@@ -9,7 +9,7 @@
   <h3 align="center">Pet Speak Health</h3>
 
   <p align="center">
-    We wanted to literally take notation out of the hands of veterinajry professionals, and put clients money where their pets' doctor's mouth is...OK, that's a bit of a stretch.
+    We wanted to literally take notation out of the hands of veterinary professionals, and put client's money where their pets' doctor's mouth is...OK, that's a bit of a stretch.
 <br />
 PSH enables not just keeping of medical documentation, but the oral dictation, all in one database which is convenient for both the veterinary staff and the pet owner.
     <br />
@@ -22,7 +22,8 @@ PSH enables not just keeping of medical documentation, but the oral dictation, a
 
 
 <!-- TABLE OF CONTENTS -->
-<details open="open"><summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
